@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Acceso a la Demo — La Mesa del Dominó</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/png" sizes="512x512" href="../assets/favicon.png">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --gold: #d4af37;
+    --gold-light: #f3dfa0;
+    --black: #0a0a0c;
+    --emerald-soft: #123b2c;
+    --ivory: #f2ead9;
+    --ivory-dim: #cfc6b2;
+    --maroon: #3a0d16;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding: 24px;
+    background: radial-gradient(ellipse at 50% 20%, rgba(212,175,55,0.14), transparent 55%), radial-gradient(ellipse at 50% 100%, rgba(13,51,39,0.5), transparent 60%), var(--black);
+    color: var(--ivory);
+    font-family:'Inter', sans-serif;
+  }
+  .card{max-width: 420px; width:100%;}
+  img{width:110px; margin: 0 auto 20px; filter: drop-shadow(0 10px 24px rgba(212,175,55,0.25));}
+  h1{font-family:'Cinzel', serif; color: var(--gold-light); font-size: 1.5rem; margin-bottom: 10px;}
+  p{color: var(--ivory-dim); margin-bottom: 26px; line-height:1.6; font-size:.92rem;}
+  form{display:flex; flex-direction:column; gap:14px;}
+  input{
+    padding: 13px 18px;
+    border-radius: 12px;
+    border: 1px solid rgba(212,175,55,0.4);
+    background: rgba(255,255,255,0.04);
+    color: var(--ivory);
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    text-align:center;
+  }
+  input::placeholder{color: var(--ivory-dim); opacity:.7;}
+  input:focus{outline: 2px solid var(--gold); outline-offset: 1px;}
+  button{
+    cursor:pointer;
+    border:none;
+    padding: 13px 18px;
+    border-radius: 999px;
+    font-family:'Cinzel', serif;
+    font-weight:600;
+    font-size: 1rem;
+    background: linear-gradient(180deg, var(--gold-light), var(--gold) 60%, #a3792f);
+    color: #241a03;
+  }
+  .error{
+    display:none;
+    color: #e58a8a;
+    font-size: .85rem;
+    margin-top: -4px;
+  }
+  .error.show{display:block;}
+  .back{
+    display:inline-block;
+    margin-top: 26px;
+    color: var(--ivory-dim);
+    font-size: .85rem;
+    text-decoration:none;
+  }
+</style>
+</head>
+<body>
+  <div class="card">
+    <img src="../assets/logo.png" alt="La Mesa del Dominó">
+    <h1>Acceso a la Demo</h1>
+    <p>Esta es una versión de vista previa. Ingresa la contraseña para entrar.</p>
+    <form id="gate-form" autocomplete="off">
+      <input type="password" id="pw" placeholder="Contraseña" autofocus>
+      <div class="error" id="err">Contraseña incorrecta. Intenta de nuevo.</div>
+      <button type="submit">Entrar</button>
+    </form>
+    <a class="back" href="../">Volver al sitio</a>
+  </div>
+
+<script>
+  document.getElementById('gate-form').addEventListener('submit', function(e){
+    e.preventDefault();
+    var val = document.getElementById('pw').value;
+    if (val === 'ElMini2026$') {
+      sessionStorage.setItem('lmdd_demo_auth', '1');
+      window.location.href = 'app/game.html';
+    } else {
+      document.getElementById('err').classList.add('show');
+    }
+  });
+</script>
+</body>
+</html>
