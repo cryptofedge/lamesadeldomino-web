@@ -256,6 +256,62 @@
     display:block;
   }
 
+  /* Demo CTA */
+  .demo-cta{
+    padding: 24px 24px 84px;
+    background: var(--black);
+  }
+  .demo-panel{
+    max-width: 1000px;
+    margin: 0 auto;
+    display:grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    border-radius: 20px;
+    overflow:hidden;
+    border: 1px solid rgba(212,175,55,0.35);
+    background: linear-gradient(160deg, rgba(212,175,55,0.1), rgba(255,255,255,0.02));
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  }
+  .demo-visual{
+    background: var(--black);
+    max-height: 340px;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+  }
+  .demo-visual img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position: top center;
+    opacity: .92;
+  }
+  .demo-content{
+    padding: 40px 36px 44px;
+    text-align:center;
+  }
+  .demo-content .eyebrow{margin-bottom:14px;}
+  .demo-content h2{
+    font-family:'Cinzel', serif;
+    font-size: clamp(1.6rem, 3.4vw, 2.1rem);
+    color: var(--gold-light);
+    margin-bottom: 18px;
+  }
+  .demo-content .ornament{margin-bottom:18px;}
+  .demo-content p{
+    color: var(--ivory-dim);
+    max-width: 480px;
+    margin: 0 auto 28px;
+  }
+  .demo-btn{display:inline-flex;}
+  @media (min-width: 760px){
+    .demo-panel{grid-template-columns: 1fr 1fr; align-items:stretch;}
+    .demo-visual{max-height:none;}
+    .demo-content{text-align:left; display:flex; flex-direction:column; justify-content:center;}
+    .demo-content p{margin: 0 0 28px;}
+  }
+
   /* Features */
   .features{
     background: linear-gradient(180deg, var(--black), var(--black-soft));
@@ -538,6 +594,21 @@
     <span class="btn btn-outline">Descargar App <span class="badge-soon">Muy Pronto</span></span>
   </div>
   <p class="hero-note">Disponible próximamente en iOS, Android y Web.</p>
+</section>
+
+<section class="demo-cta" id="demo">
+  <div class="demo-panel">
+    <div class="demo-visual">
+      <img src="assets/gallery-table.jpg" alt="Mesa de juego en partida">
+    </div>
+    <div class="demo-content">
+      <div class="eyebrow">Disponible Ahora</div>
+      <h2>Juega la Demo</h2>
+      <div class="ornament"><i></i></div>
+      <p>Una vista previa jugable de La Mesa del Dominó, directo en tu navegador. Acceso anticipado protegido con contraseña mientras terminamos de pulir la mesa.</p>
+      <a href="demo/" class="btn btn-primary demo-btn">Jugar la Demo Ahora</a>
+    </div>
+  </div>
 </section>
 
 <section class="features" id="como-jugar">
