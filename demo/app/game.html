@@ -6,6 +6,29 @@
     window.location.replace('../');
   }
 </script>
+<script>
+(function(){
+  if (!/Mobi|Android|iPhone|iPad/i.test(navigator.userAgent)) return;
+  function goLandscape(){
+    document.removeEventListener('pointerdown', goLandscape);
+    var el = document.documentElement;
+    var req = el.requestFullscreen || el.webkitRequestFullscreen;
+    var lock = function(){
+      try {
+        if (screen.orientation && screen.orientation.lock) {
+          screen.orientation.lock('landscape').catch(function(){});
+        }
+      } catch(e) {}
+    };
+    if (req) {
+      Promise.resolve(req.call(el)).then(lock).catch(lock);
+    } else {
+      lock();
+    }
+  }
+  document.addEventListener('pointerdown', goLandscape, { once: true });
+})();
+</script>
 <link rel="preload" href="decoders/basis/basis_transcoder.wasm" as="fetch" crossorigin="anonymous">
 <link rel="preload" href="decoders/draco/draco_decoder.wasm" as="fetch" crossorigin="anonymous">
 <link rel="preload" href="decoders/draco/gltf/draco_decoder.wasm" as="fetch" crossorigin="anonymous">
