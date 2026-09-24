@@ -1,0 +1,612 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>La Mesa del Dominó — Donde se demuestra quién sabe jugar</title>
+<meta name="description" content="La Mesa del Dominó: dominó dominicano auténtico, en equipos de 2v2, con mesa de casino de lujo, personalización de personaje y torneos. Muy pronto en iOS, Android y Web.">
+
+<link rel="icon" type="image/png" sizes="512x512" href="assets/favicon.png">
+<link rel="shortcut icon" href="assets/favicon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+
+<meta property="og:title" content="La Mesa del Dominó">
+<meta property="og:description" content="Donde se demuestra quién sabe jugar. Dominó dominicano auténtico, mesa de casino de lujo, equipos 2v2 y torneos.">
+<meta property="og:image" content="https://lamesadeldomino.com/assets/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://lamesadeldomino.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="La Mesa del Dominó">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="La Mesa del Dominó">
+<meta name="twitter:description" content="Donde se demuestra quién sabe jugar. Dominó dominicano auténtico, mesa de casino de lujo, equipos 2v2 y torneos.">
+<meta name="twitter:image" content="https://lamesadeldomino.com/assets/og-image.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --gold: #d4af37;
+    --gold-light: #f3dfa0;
+    --gold-deep: #a3792f;
+    --black: #0a0a0c;
+    --black-soft: #121214;
+    --emerald: #0d3327;
+    --emerald-soft: #123b2c;
+    --ivory: #f2ead9;
+    --ivory-dim: #cfc6b2;
+    --maroon: #3a0d16;
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    background: var(--black);
+    color: var(--ivory);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  h1,h2,h3,.brand{
+    font-family: 'Cinzel', serif;
+  }
+
+  img{max-width:100%; display:block;}
+
+  a{color:inherit; text-decoration:none;}
+
+  .container{
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* Header */
+  header{
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(10,10,12,0.88);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(212,175,55,0.18);
+  }
+  .nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding: 14px 24px;
+    max-width: 1120px;
+    margin: 0 auto;
+  }
+  .nav-brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-weight:700;
+    letter-spacing:.03em;
+    font-size:1.05rem;
+    color: var(--gold-light);
+  }
+  .nav-brand img{height:34px; width:auto;}
+  .nav-links{
+    display:flex;
+    gap: 28px;
+    font-size:.92rem;
+    letter-spacing:.02em;
+  }
+  .nav-links a{
+    color: var(--ivory-dim);
+    transition: color .2s ease;
+  }
+  .nav-links a:hover{color: var(--gold-light);}
+  .nav-cta{
+    display:inline-block;
+    padding: 9px 18px;
+    border: 1px solid var(--gold);
+    border-radius: 999px;
+    font-size: .85rem;
+    font-weight:600;
+    color: var(--gold-light);
+    white-space:nowrap;
+  }
+  @media (max-width: 720px){
+    .nav-links{display:none;}
+  }
+
+  /* Hero */
+  .hero{
+    position:relative;
+    padding: 76px 24px 90px;
+    text-align:center;
+    background:
+      radial-gradient(ellipse at 50% -10%, rgba(212,175,55,0.16), transparent 55%),
+      radial-gradient(ellipse at 50% 110%, rgba(13,51,39,0.55), transparent 60%),
+      var(--black);
+    border-bottom: 1px solid rgba(212,175,55,0.15);
+  }
+  .hero-logo{
+    width: 190px;
+    margin: 0 auto 18px;
+    filter: drop-shadow(0 12px 30px rgba(212,175,55,0.25));
+  }
+  .eyebrow{
+    display:inline-block;
+    font-size:.78rem;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color: var(--gold);
+    border: 1px solid rgba(212,175,55,0.4);
+    padding: 6px 16px;
+    border-radius: 999px;
+    margin-bottom: 22px;
+  }
+  .hero h1{
+    font-size: clamp(2.1rem, 5vw, 3.6rem);
+    font-weight: 700;
+    color: var(--gold-light);
+    text-shadow: 0 2px 18px rgba(212,175,55,0.25);
+    margin-bottom: 14px;
+  }
+  .hero .tagline{
+    font-family:'Cinzel', serif;
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    color: var(--gold);
+    letter-spacing:.03em;
+    margin-bottom: 22px;
+  }
+  .hero p.lead{
+    max-width: 560px;
+    margin: 0 auto 36px;
+    color: var(--ivory-dim);
+    font-size: 1.02rem;
+  }
+
+  .cta-row{
+    display:flex;
+    gap: 16px;
+    justify-content:center;
+    flex-wrap:wrap;
+    margin-bottom: 18px;
+  }
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding: 14px 30px;
+    border-radius: 999px;
+    font-weight:600;
+    font-size: .95rem;
+    letter-spacing:.02em;
+    cursor:default;
+    position:relative;
+  }
+  .btn-primary{
+    background: linear-gradient(180deg, var(--gold-light), var(--gold) 60%, var(--gold-deep));
+    color: #241a03;
+    box-shadow: 0 10px 24px rgba(212,175,55,0.25);
+  }
+  .btn-outline{
+    border: 1px solid rgba(212,175,55,0.5);
+    color: var(--gold-light);
+    background: rgba(212,175,55,0.05);
+  }
+  .badge-soon{
+    font-size:.62rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    background: var(--maroon);
+    color: var(--ivory);
+    padding: 3px 8px;
+    border-radius: 999px;
+    border: 1px solid rgba(212,175,55,0.35);
+  }
+  .hero-note{
+    font-size: .85rem;
+    color: var(--ivory-dim);
+    opacity:.8;
+  }
+
+  /* Sections */
+  section{
+    padding: 84px 24px;
+  }
+  .section-head{
+    text-align:center;
+    max-width: 620px;
+    margin: 0 auto 52px;
+  }
+  .section-head .eyebrow{margin-bottom:14px;}
+  .section-head h2{
+    font-size: clamp(1.6rem, 3.4vw, 2.3rem);
+    color: var(--gold-light);
+    margin-bottom: 18px;
+  }
+  .section-head p{
+    color: var(--ivory-dim);
+  }
+
+  .ornament{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    width: 130px;
+    margin: 0 auto 22px;
+  }
+  .ornament::before, .ornament::after{
+    content:'';
+    height:1px;
+    flex:1;
+    background: linear-gradient(90deg, transparent, var(--gold));
+  }
+  .ornament::after{background: linear-gradient(90deg, var(--gold), transparent);}
+  .ornament i{
+    width:6px;
+    height:6px;
+    background: var(--gold);
+    transform: rotate(45deg);
+    flex-shrink:0;
+    display:block;
+  }
+
+  /* Features */
+  .features{
+    background: linear-gradient(180deg, var(--black), var(--black-soft));
+  }
+  .feature-grid{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 1120px;
+    margin: 0 auto;
+  }
+  .feature-card{
+    background: linear-gradient(160deg, rgba(212,175,55,0.06), rgba(255,255,255,0.02));
+    border: 1px solid rgba(212,175,55,0.16);
+    border-radius: 16px;
+    padding: 28px 24px;
+  }
+  .feature-icon{
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background: rgba(212,175,55,0.12);
+    border: 1px solid rgba(212,175,55,0.35);
+    color: var(--gold-light);
+    margin-bottom: 16px;
+  }
+  .feature-card h3{
+    font-size: 1.05rem;
+    color: var(--gold-light);
+    margin-bottom: 8px;
+    font-weight:600;
+    letter-spacing:.01em;
+  }
+  .feature-card p{
+    font-size: .9rem;
+    color: var(--ivory-dim);
+  }
+  @media (max-width: 860px){
+    .feature-grid{grid-template-columns: repeat(2, 1fr);}
+  }
+  @media (max-width: 560px){
+    .feature-grid{grid-template-columns: 1fr;}
+  }
+
+  /* Gallery */
+  .gallery{
+    background: radial-gradient(ellipse at 50% 0%, rgba(13,51,39,0.4), transparent 60%), var(--black-soft);
+    border-top: 1px solid rgba(212,175,55,0.12);
+    border-bottom: 1px solid rgba(212,175,55,0.12);
+  }
+  .gallery-grid{
+    columns: 2 220px;
+    column-gap: 18px;
+    max-width: 1120px;
+    margin: 0 auto;
+  }
+  .gallery-grid figure{
+    break-inside: avoid;
+    margin: 0 0 18px;
+    border-radius: 14px;
+    overflow:hidden;
+    border: 1px solid rgba(212,175,55,0.25);
+    background: var(--black);
+  }
+  .gallery-grid img{
+    width:100%;
+    height:auto;
+    display:block;
+    transition: transform .35s ease;
+  }
+  .gallery-grid figure:hover img{transform: scale(1.05);}
+  @media (min-width: 860px){
+    .gallery-grid{columns: 4 220px;}
+  }
+
+  /* Download */
+  .download{
+    text-align:center;
+    background: linear-gradient(180deg, var(--black-soft), var(--emerald-soft) 140%);
+  }
+  .store-row{
+    display:flex;
+    gap:20px;
+    justify-content:center;
+    flex-wrap:wrap;
+    margin-top: 10px;
+  }
+  .store-badge{
+    position:relative;
+    display:flex;
+    align-items:center;
+    gap:13px;
+    padding: 14px 40px 14px 18px;
+    border-radius: 14px;
+    border: 1px solid rgba(212,175,55,0.38);
+    background: linear-gradient(160deg, rgba(212,175,55,0.09), rgba(255,255,255,0.015));
+    min-width: 200px;
+    text-align:left;
+    overflow:hidden;
+    transition: border-color .25s ease, transform .25s ease;
+  }
+  .store-badge:hover{
+    border-color: rgba(212,175,55,0.7);
+    transform: translateY(-2px);
+  }
+  .store-badge .store-icon{
+    flex-shrink:0;
+    width:36px;
+    height:36px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color: var(--gold-light);
+  }
+  .store-badge .store-text{
+    display:flex;
+    flex-direction:column;
+    gap: 1px;
+  }
+  .store-badge .store-label{
+    font-size: .64rem;
+    color: var(--ivory-dim);
+    text-transform:uppercase;
+    letter-spacing:.09em;
+  }
+  .store-badge .store-name{
+    font-family:'Cinzel', serif;
+    font-weight:600;
+    color: var(--gold-light);
+    font-size: 1.06rem;
+    letter-spacing:.01em;
+  }
+  .store-badge .ribbon{
+    position:absolute;
+    top: 12px;
+    right: -32px;
+    transform: rotate(42deg);
+    background: var(--maroon);
+    color: var(--ivory);
+    font-size: .52rem;
+    font-weight:600;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    padding: 2px 32px;
+    border-top: 1px solid rgba(212,175,55,0.5);
+    border-bottom: 1px solid rgba(212,175,55,0.5);
+    white-space:nowrap;
+  }
+
+  /* Footer */
+  footer{
+    padding: 48px 24px 36px;
+    text-align:center;
+    background: var(--black);
+    border-top: 1px solid rgba(212,175,55,0.15);
+  }
+  footer .footer-logo{
+    height: 46px;
+    margin: 0 auto 18px;
+    opacity:.9;
+  }
+  footer .credit{
+    font-size:.9rem;
+    color: var(--ivory-dim);
+    margin-bottom: 4px;
+  }
+  footer .powered{
+    font-family:'Cinzel', serif;
+    font-size: .82rem;
+    letter-spacing:.08em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin: 14px 0 18px;
+  }
+  footer .disclaimer{
+    font-size:.76rem;
+    color: rgba(207,198,178,0.55);
+    max-width: 520px;
+    margin: 0 auto;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <div class="nav-brand">
+      <img src="assets/logo.png" alt="La Mesa del Dominó">
+      <span>La Mesa del Dominó</span>
+    </div>
+    <div class="nav-links">
+      <a href="#como-jugar">Cómo Jugar</a>
+      <a href="#galeria">Galería</a>
+      <a href="#descargar">Descargar</a>
+    </div>
+    <a href="#descargar" class="nav-cta">Muy Pronto</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <img class="hero-logo" src="assets/logo.png" alt="Escudo de La Mesa del Dominó">
+  <div class="eyebrow">2 vs 2 · Reglas de Patio</div>
+  <h1>La Mesa del Dominó</h1>
+  <p class="tagline">Donde se demuestra quién sabe jugar.</p>
+  <p class="lead">
+    Dominó dominicano auténtico en una mesa de casino de lujo: forma equipo con tu compañero,
+    domina el tranque y la capicúa, personaliza tu personaje, y siéntate a jugar con estilo.
+  </p>
+  <div class="cta-row">
+    <span class="btn btn-primary">Jugar Ahora <span class="badge-soon">Muy Pronto</span></span>
+    <span class="btn btn-outline">Descargar App <span class="badge-soon">Muy Pronto</span></span>
+  </div>
+  <p class="hero-note">Disponible próximamente en iOS, Android y Web.</p>
+</section>
+
+<section class="features" id="como-jugar">
+  <div class="section-head">
+    <div class="eyebrow">La Experiencia</div>
+    <h2>Todo lo que hace grande a una mesa de patio</h2>
+    <div class="ornament"><i></i></div>
+    <p>Construido con las reglas auténticas del dominó dominicano, y vestido de gala.</p>
+  </div>
+  <div class="feature-grid">
+
+    <div class="feature-card">
+      <div class="feature-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="2" width="16" height="20" rx="3"/><circle cx="9" cy="8" r="1.3" fill="currentColor" stroke="none"/><circle cx="15" cy="8" r="1.3" fill="currentColor" stroke="none"/><circle cx="9" cy="16" r="1.3" fill="currentColor" stroke="none"/><circle cx="15" cy="16" r="1.3" fill="currentColor" stroke="none"/></svg>
+      </div>
+      <h3>Reglas Auténticas de Patio</h3>
+      <p>Doble-seis, mano obligada, tranque y bono de capicúa — como se juega de verdad.</p>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="8" r="3.2"/><circle cx="16" cy="8" r="3.2"/><path d="M2 21c0-3.3 2.7-6 6-6s6 2.7 6 6M10 21c0-3.3 2.7-6 6-6s6 2.7 6 6"/></svg>
+      </div>
+      <h3>Modo Equipos 2v2</h3>
+      <p>Forma pareja con tu compañero frente a dos rivales. Estrategia de equipo real.</p>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4-4.8-2.5-4.8 2.5.9-5.4L4.2 7.7l5.4-.8z"/></svg>
+      </div>
+      <h3>Personaliza tu Personaje</h3>
+      <p>Elige rostro, atuendo, accesorios y color, y llévalos contigo a la mesa.</p>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v18M5 8l7-5 7 5M5 8v6a7 7 0 0014 0V8"/></svg>
+      </div>
+      <h3>Torneos VIP</h3>
+      <p>Compite en brackets, sube de rango y demuestra quién manda en la mesa.</p>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+      </div>
+      <h3>Modo Espectador</h3>
+      <p>Míra partidas en vivo, sigue a tus jugadores favoritos y aprende jugadas.</p>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l7 3.5v6c0 5-3.4 8-7 10.5C8.4 19.5 5 16.5 5 11.5v-6z"/></svg>
+      </div>
+      <h3>Mesa de Casino de Lujo</h3>
+      <p>Fieltro esmeralda, oro y madera pulida — decorativo, sin apuestas reales.</p>
+    </div>
+
+  </div>
+</section>
+
+<section class="gallery" id="galeria">
+  <div class="section-head">
+    <div class="eyebrow">Galería</div>
+    <h2>Un vistazo a la mesa</h2>
+    <div class="ornament"><i></i></div>
+    <p>Arte conceptual del juego en desarrollo.</p>
+  </div>
+  <div class="gallery-grid">
+    <figure><img src="assets/gallery-table.jpg" alt="Mesa de juego en partida" loading="lazy"></figure>
+    <figure><img src="assets/gallery-lobby.jpg" alt="Lobby del juego" loading="lazy"></figure>
+    <figure><img src="assets/gallery-registro.jpg" alt="Pantalla de registro de jugador" loading="lazy"></figure>
+    <figure><img src="assets/gallery-personaje.jpg" alt="Creación de personaje" loading="lazy"></figure>
+    <figure><img src="assets/gallery-victoria.jpg" alt="Pantalla de victoria y capicúa" loading="lazy"></figure>
+    <figure><img src="assets/gallery-tournaments.jpg" alt="Torneos VIP y modo espectador" loading="lazy"></figure>
+    <figure><img src="assets/gallery-ruleta.jpg" alt="Ruleta del patrón y clubes" loading="lazy"></figure>
+    <figure><img src="assets/gallery-systems.jpg" alt="Sistemas avanzados y reglas del patio" loading="lazy"></figure>
+  </div>
+</section>
+
+<section class="download" id="descargar">
+  <div class="section-head" style="margin-bottom:36px;">
+    <div class="eyebrow">Descarga</div>
+    <h2>Muy pronto en tu bolsillo</h2>
+    <div class="ornament"><i></i></div>
+    <p>Estamos terminando de pulir la mesa. Vuelve pronto para jugar.</p>
+  </div>
+  <div class="store-row">
+    <span class="store-badge">
+      <span class="ribbon">Muy pronto</span>
+      <span class="store-icon">
+        <svg width="26" height="26" viewBox="0 0 24 24">
+          <mask id="appleCut">
+            <rect width="24" height="24" fill="black"/>
+            <circle cx="9.2" cy="13.2" r="6.1" fill="white"/>
+            <circle cx="14.8" cy="12.1" r="6.6" fill="white"/>
+            <circle cx="17.7" cy="7.9" r="2.7" fill="black"/>
+          </mask>
+          <rect width="24" height="24" fill="currentColor" mask="url(#appleCut)"/>
+          <ellipse cx="14.3" cy="3.3" rx="1.7" ry="0.9" transform="rotate(-35 14.3 3.3)" fill="currentColor"/>
+        </svg>
+      </span>
+      <span class="store-text"><span class="store-name">App Store</span></span>
+    </span>
+    <span class="store-badge">
+      <span class="ribbon">Muy pronto</span>
+      <span class="store-icon">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
+          <polygon points="5,3 5,21 20,12"/>
+          <polygon points="5,3 12.5,7.7 5,12.3" fill="#ffffff" opacity="0.2"/>
+          <polygon points="5,12.3 12.5,17 5,21" fill="#000000" opacity="0.2"/>
+        </svg>
+      </span>
+      <span class="store-text"><span class="store-name">Google Play</span></span>
+    </span>
+    <span class="store-badge">
+      <span class="ribbon">Muy pronto</span>
+      <span class="store-icon">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+      </span>
+      <span class="store-text"><span class="store-name">Navegador</span></span>
+    </span>
+  </div>
+</section>
+
+<footer>
+  <img class="footer-logo" src="assets/logo.png" alt="La Mesa del Dominó">
+  <p class="credit">Fundador: Edwin "Richard Fashion" Hernández</p>
+  <p class="powered">Powered by Eclat Universe</p>
+  <p class="disclaimer">
+    © 2026 La Mesa del Dominó. Todos los derechos reservados. Juego de entretenimiento —
+    fichas decorativas, sin apuestas ni valor monetario real.
+  </p>
+</footer>
+
+</body>
+</html>
