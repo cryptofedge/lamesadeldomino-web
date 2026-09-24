@@ -16,15 +16,24 @@
       }
     } catch(e) {}
   }
+  function isFullscreen(){
+    return !!(document.fullscreenElement || document.webkitFullscreenElement);
+  }
+  function stop(){
+    document.removeEventListener('click', goLandscape);
+  }
   function goLandscape(){
-    document.removeEventListener('pointerdown', goLandscape);
+    if (isFullscreen()) { stop(); lock(); return; }
     try {
       var el = document.documentElement;
       var req = el.requestFullscreen || el.webkitRequestFullscreen;
       if (req) {
         var p = req.call(el);
-        if (p && typeof p.then === 'function') { p.then(lock).catch(lock); }
-        else { lock(); }
+        if (p && typeof p.then === 'function') {
+          p.then(function(){ stop(); lock(); }).catch(lock);
+        } else {
+          lock();
+        }
       } else {
         lock();
       }
@@ -32,7 +41,7 @@
       lock();
     }
   }
-  document.addEventListener('pointerdown', goLandscape, { once: true });
+  document.addEventListener('click', goLandscape);
 })();
 </script>
 <style>
