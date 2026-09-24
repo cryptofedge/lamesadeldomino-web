@@ -9,26 +9,50 @@
 <script>
 (function(){
   if (!/Mobi|Android|iPhone|iPad/i.test(navigator.userAgent)) return;
+  function lock(){
+    try {
+      if (screen.orientation && screen.orientation.lock) {
+        screen.orientation.lock('landscape').catch(function(){});
+      }
+    } catch(e) {}
+  }
   function goLandscape(){
     document.removeEventListener('pointerdown', goLandscape);
-    var el = document.documentElement;
-    var req = el.requestFullscreen || el.webkitRequestFullscreen;
-    var lock = function(){
-      try {
-        if (screen.orientation && screen.orientation.lock) {
-          screen.orientation.lock('landscape').catch(function(){});
-        }
-      } catch(e) {}
-    };
-    if (req) {
-      Promise.resolve(req.call(el)).then(lock).catch(lock);
-    } else {
+    try {
+      var el = document.documentElement;
+      var req = el.requestFullscreen || el.webkitRequestFullscreen;
+      if (req) {
+        var p = req.call(el);
+        if (p && typeof p.then === 'function') { p.then(lock).catch(lock); }
+        else { lock(); }
+      } else {
+        lock();
+      }
+    } catch(e) {
       lock();
     }
   }
   document.addEventListener('pointerdown', goLandscape, { once: true });
 })();
 </script>
+<style>
+  #rotate-hint{
+    display:none;
+    position:fixed;
+    top:0; left:0; right:0;
+    z-index:99999;
+    background:rgba(10,10,12,0.92);
+    color:#f3dfa0;
+    font-family:system-ui,sans-serif;
+    font-size:13px;
+    text-align:center;
+    padding:9px 12px;
+    letter-spacing:.02em;
+  }
+  @media (orientation: portrait) and (max-width: 900px){
+    #rotate-hint{display:block;}
+  }
+</style>
 <link rel="preload" href="decoders/basis/basis_transcoder.wasm" as="fetch" crossorigin="anonymous">
 <link rel="preload" href="decoders/draco/draco_decoder.wasm" as="fetch" crossorigin="anonymous">
 <link rel="preload" href="decoders/draco/gltf/draco_decoder.wasm" as="fetch" crossorigin="anonymous">
@@ -39,5 +63,5 @@
   <link rel="modulepreload" crossorigin href="./_app/phaser-C71JNjGr.js">
   <link rel="stylesheet" crossorigin href="./_app/index-Cfi-iSLh.css">
 </head>
-<body><main id="stage"><div id="game-canvas"></div><div id="ui"></div><div id="loading" class="loading">La Mesa del Dominó<small>SETTING YOUR TABLE…</small></div></main></body>
+<body><div id="rotate-hint">Gira tu teléfono para jugar en pantalla completa</div><main id="stage"><div id="game-canvas"></div><div id="ui"></div><div id="loading" class="loading">La Mesa del Dominó<small>SETTING YOUR TABLE…</small></div></main></body>
 </html>
