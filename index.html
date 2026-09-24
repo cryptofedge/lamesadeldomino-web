@@ -392,6 +392,13 @@
     color: var(--ivory-dim);
   }
   .founder-note strong{color: var(--gold-light);}
+  .early-status{
+    font-size: .95rem;
+    margin-bottom: 16px;
+    min-height: 0;
+  }
+  .early-status-ok{color: var(--gold-light); font-weight:600;}
+  .early-status-error{color: #e58a8a;}
 
   /* Download */
   .download{
@@ -618,17 +625,49 @@
     <div class="ornament"><i></i></div>
     <p>Reserva tu usuario y consigue acceso anticipado cuando lancemos el juego.</p>
 
-    <form class="early-form" action="https://formspree.io/f/moevwgel" method="POST">
+    <form class="early-form" id="early-form" action="https://formspree.io/f/moevwgel" method="POST">
       <input type="hidden" name="_subject" value="Nuevo registro - Acceso Anticipado La Mesa del Dominó">
-      <input type="hidden" name="_next" value="https://lamesadeldomino.com/gracias.html">
       <input type="email" name="email" placeholder="Tu correo electrónico" required>
       <input type="text" name="usuario" placeholder="Usuario deseado (opcional)">
       <button type="submit" class="btn btn-primary early-submit">Reservar mi Lugar</button>
     </form>
+    <p class="early-status" id="early-status" role="status" aria-live="polite"></p>
 
     <p class="founder-note">Los primeros 5,000 jugadores reciben una insignia exclusiva de <strong>Fundador</strong>, sin valor monetario real.</p>
   </div>
 </section>
+
+<script>
+(function(){
+  var form = document.getElementById('early-form');
+  var status = document.getElementById('early-status');
+  if (!form) return;
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var btn = form.querySelector('.early-submit');
+    btn.disabled = true;
+    btn.textContent = 'Enviando...';
+    fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    }).then(function(res){
+      if (res.ok){
+        form.style.display = 'none';
+        status.textContent = '¡Listo! Ya estás en la lista. Te avisaremos por correo cuando abramos el acceso anticipado.';
+        status.classList.add('early-status-ok');
+      } else {
+        throw new Error('bad response');
+      }
+    }).catch(function(){
+      status.textContent = 'Algo salió mal. Intenta de nuevo en un momento.';
+      status.classList.add('early-status-error');
+      btn.disabled = false;
+      btn.textContent = 'Reservar mi Lugar';
+    });
+  });
+})();
+</script>
 
 <section class="download" id="descargar">
   <div class="section-head" style="margin-bottom:36px;">
