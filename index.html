@@ -342,6 +342,57 @@
     .gallery-grid{columns: 4 220px;}
   }
 
+  /* Early Access */
+  .early-access{
+    padding: 84px 24px;
+    background: radial-gradient(ellipse at 50% 0%, rgba(212,175,55,0.1), transparent 60%), var(--black);
+    border-bottom: 1px solid rgba(212,175,55,0.15);
+  }
+  .early-panel{
+    max-width: 620px;
+    margin: 0 auto;
+    text-align:center;
+  }
+  .early-panel h2{
+    font-size: clamp(1.6rem, 3.4vw, 2.3rem);
+    color: var(--gold-light);
+    margin-bottom: 18px;
+  }
+  .early-panel > p{
+    color: var(--ivory-dim);
+    margin-bottom: 30px;
+  }
+  .early-form{
+    display:flex;
+    flex-wrap:wrap;
+    gap: 12px;
+    justify-content:center;
+    margin-bottom: 20px;
+  }
+  .early-form input{
+    flex: 1 1 220px;
+    max-width: 280px;
+    padding: 13px 18px;
+    border-radius: 999px;
+    border: 1px solid rgba(212,175,55,0.4);
+    background: rgba(255,255,255,0.04);
+    color: var(--ivory);
+    font-family: 'Inter', sans-serif;
+    font-size: .92rem;
+  }
+  .early-form input::placeholder{color: var(--ivory-dim); opacity:.7;}
+  .early-form input:focus{outline: 2px solid var(--gold); outline-offset: 1px;}
+  .early-submit{
+    cursor:pointer;
+    border:none;
+    font-family:'Inter', sans-serif;
+  }
+  .founder-note{
+    font-size: .85rem;
+    color: var(--ivory-dim);
+  }
+  .founder-note strong{color: var(--gold-light);}
+
   /* Download */
   .download{
     text-align:center;
@@ -557,6 +608,24 @@
     <figure><img src="assets/gallery-victoria.jpg" alt="Pantalla de victoria y capicúa" loading="lazy"></figure>
     <figure><img src="assets/gallery-ruleta.jpg" alt="Ruleta del patrón y clubes" loading="lazy"></figure>
     <figure><img src="assets/gallery-systems.jpg" alt="Sistemas avanzados y reglas del patio" loading="lazy"></figure>
+  </div>
+</section>
+
+<section class="early-access" id="acceso-anticipado">
+  <div class="early-panel">
+    <div class="eyebrow">Acceso Anticipado</div>
+    <h2>Únete a la Mesa Antes que Todos</h2>
+    <div class="ornament"><i></i></div>
+    <p>Reserva tu usuario y consigue acceso anticipado cuando lancemos el juego.</p>
+
+    <!-- Formspree endpoint pending — replace action URL below once provided -->
+    <form class="early-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <input type="email" name="email" placeholder="Tu correo electrónico" required>
+      <input type="text" name="usuario" placeholder="Usuario deseado (opcional)">
+      <button type="submit" class="btn btn-primary early-submit">Reservar mi Lugar</button>
+    </form>
+
+    <p class="founder-note">Los primeros 5,000 jugadores reciben una insignia exclusiva de <strong>Fundador</strong>, sin valor monetario real.</p>
   </div>
 </section>
 
