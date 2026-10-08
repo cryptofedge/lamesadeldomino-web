@@ -1,0 +1,8 @@
+[{
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "com.lamesadeldomino.twa",
+        "sha256_cert_fingerprints": ["18:48:74:1F:69:61:40:74:7A:77:8E:33:4F:AD:C4:8E:5B:0F:BD:85:FD:6D:7B:80:07:0D:C7:0F:09:98:4E:AF"]
+      }
+    }]
