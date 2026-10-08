@@ -1,0 +1,33 @@
+{
+  "name": "La Mesa del Dominó",
+  "short_name": "La Mesa",
+  "description": "Dominó dominicano auténtico en una mesa de casino de lujo.",
+  "start_url": "/play/",
+  "id": "/play/",
+  "scope": "/play/",
+  "display": "fullscreen",
+  "orientation": "landscape",
+  "background_color": "#0b0d0c",
+  "theme_color": "#0b0d0c",
+  "lang": "es",
+  "icons": [
+    {
+      "src": "/assets/playstore/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/playstore/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/playstore/icon-512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

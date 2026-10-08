@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="es">
+<head>
+<base href="../demo/app/">
+<link rel="manifest" href="/play/manifest.json">
+<link rel="icon" href="/assets/playstore/icon-192.png">
+<link rel="apple-touch-icon" href="/assets/playstore/icon-192.png">
+<script>
+(function(){
+  function lock(){
+    try {
+      if (screen.orientation && screen.orientation.lock) {
+        screen.orientation.lock('landscape').catch(function(){});
+      }
+    } catch(e) {}
+  }
+  function isFullscreen(){
+    return !!(document.fullscreenElement || document.webkitFullscreenElement);
+  }
+  function stop(){
+    document.removeEventListener('click', goLandscape);
+  }
+  function goLandscape(){
+    if (isFullscreen()) { stop(); lock(); return; }
+    try {
+      var el = document.documentElement;
+      var req = el.requestFullscreen || el.webkitRequestFullscreen;
+      if (req) {
+        var p = req.call(el);
+        if (p && typeof p.then === 'function') {
+          p.then(function(){ stop(); lock(); }).catch(lock);
+        } else {
+          lock();
+        }
+      } else {
+        lock();
+      }
+    } catch(e) {
+      lock();
+    }
+  }
+  if (/Mobi|Android|iPhone|iPad/i.test(navigator.userAgent)) {
+    document.addEventListener('click', goLandscape);
+  }
+})();
+</script>
+<style>
+  #rotate-hint{
+    display:none;
+    position:fixed;
+    top:0; left:0; right:0;
+    z-index:99999;
+    background:rgba(10,10,12,0.92);
+    color:#f3dfa0;
+    font-family:system-ui,sans-serif;
+    font-size:13px;
+    text-align:center;
+    padding:9px 12px;
+    letter-spacing:.02em;
+  }
+  @media (orientation: portrait) and (max-width: 900px){
+    #rotate-hint{display:block;}
+  }
+</style>
+<link rel="preload" href="decoders/basis/basis_transcoder.wasm" as="fetch" crossorigin="anonymous">
+<link rel="preload" href="decoders/draco/draco_decoder.wasm" as="fetch" crossorigin="anonymous">
+<link rel="preload" href="decoders/draco/gltf/draco_decoder.wasm" as="fetch" crossorigin="anonymous">
+
+<meta charset="UTF-8">
+    <script type="application/json" id="game-meta">{"title":"La Mesa del Dominó","isMobile":false,"orientation":"landscape","disableWatermark":true,"watermarkUrl":null,"logoUrl":null,"posterUrl":"assets/ui/title_poster.webp","gameType":"2d_modern","target":"web","playSdkVersion":"1.0.3","playSdkMajor":"v1"}</script>
+    <script src="shell.js"></script>
+    <script src="play.js"></script><link rel="preload" as="image" href="_app/royal_frame-RirBl1ta.png"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0b0d0c"><meta name="description" content="La Mesa del Dominó. A timeless partnership domino game at an extraordinary table."><title>La Mesa del Dominó</title>  <script type="module" crossorigin src="_app/index-2MS32jPh.js"></script>
+  <link rel="modulepreload" crossorigin href="_app/phaser-C71JNjGr.js">
+  <link rel="stylesheet" crossorigin href="_app/index-BiAZoQXl.css">
+</head>
+<body><div id="rotate-hint">Gira tu teléfono para jugar en pantalla completa</div><main id="stage"><div id="game-canvas"></div><div id="ui"></div><div id="loading" class="loading">La Mesa del Dominó<small>SETTING YOUR TABLE…</small></div></main></body>
+</html>
