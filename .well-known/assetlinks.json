@@ -3,6 +3,9 @@
       "target": {
         "namespace": "android_app",
         "package_name": "com.lamesadeldomino.twa",
-        "sha256_cert_fingerprints": ["18:48:74:1F:69:61:40:74:7A:77:8E:33:4F:AD:C4:8E:5B:0F:BD:85:FD:6D:7B:80:07:0D:C7:0F:09:98:4E:AF"]
+        "sha256_cert_fingerprints": [
+          "18:48:74:1F:69:61:40:74:7A:77:8E:33:4F:AD:C4:8E:5B:0F:BD:85:FD:6D:7B:80:07:0D:C7:0F:09:98:4E:AF",
+          "CD:82:3F:89:72:8A:10:15:94:DE:79:6B:CD:D3:9F:15:07:63:32:AC:90:C3:64:D2:0F:E5:F5:54:FF:54:69:69"
+        ]
       }
     }]
