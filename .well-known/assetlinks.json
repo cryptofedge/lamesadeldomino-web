@@ -4,6 +4,8 @@
         "namespace": "android_app",
         "package_name": "com.lamesadeldomino.twa",
         "sha256_cert_fingerprints": [
+          "F4:2F:7B:A9:37:CD:AC:83:90:AD:4E:EA:0D:F3:D0:23:F9:F0:11:D2:C8:B3:8B:5E:15:D2:C1:A6:44:A8:A3:09",
+          "B8:59:61:C9:91:98:71:E0:34:71:DD:82:75:9A:B3:4E:77:0B:54:98:18:A1:B7:C7:95:88:E0:22:0C:AC:08:CC",
           "18:48:74:1F:69:61:40:74:7A:77:8E:33:4F:AD:C4:8E:5B:0F:BD:85:FD:6D:7B:80:07:0D:C7:0F:09:98:4E:AF",
           "CD:82:3F:89:72:8A:10:15:94:DE:79:6B:CD:D3:9F:15:07:63:32:AC:90:C3:64:D2:0F:E5:F5:54:FF:54:69:69"
         ]
